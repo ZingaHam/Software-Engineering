@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Software Engineering Hello</title>
+		<title>Software Engineering</title>
 	</head>
 <body></body>
 </html>
