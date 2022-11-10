@@ -4,11 +4,15 @@
 	Webpage:
 	- HTML
 		- login page -- N.H.W.
-		- landing page
+		- landing page -- M.H.
 			- classes
+			- navagation bar
 			- few recent files uploaded
-			
-		- account page
+		- course page
+			- is it just info. about the course?
+			- can we download documentation from the course page
+			- course access via Microsoft SSO???
+		- account page -- M.H.
 			- user information
 				(student/prof, 				 
 				files uploaded[log of uploaded files, links to upload])
