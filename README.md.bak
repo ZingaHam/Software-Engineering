@@ -3,11 +3,14 @@
  To-Do:
 	Webpage:
 	- HTML
-		- login page
-		- landing page
+		- login page -- N.H.W.
+		- landing page 
 			- classes
 			- few recent files uploaded
-			
+		- course page
+			- is it just info. about the course?
+			- can we download documentation from the course page
+			- course access via Microsoft SSO???
 		- account page
 			- user information
 				(student/prof, 				 
@@ -15,6 +18,6 @@
 	- CSS
 		- color scheme???
 	- Python
-		- uploading files
-		- login
+		- uploading files -- N.H.W.
+		- login -- N.H.W.
 			- personalization(account page)
