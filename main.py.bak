@@ -1,0 +1,17 @@
+# main python file for SWE project
+import os
+from flask import Flask, flash, request, redirect, url_for
+from werkzeug.utils import secure_filename
+
+app = Flask(__name__)
+
+index = open("index.html", "r")
+upload = open("upload.html", "r")
+
+@app.route("/")
+def hello_world():
+	return index.read()
+    
+@app.route('/upload')
+def upload():
+    return upload.read()
