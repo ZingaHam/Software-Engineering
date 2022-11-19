@@ -1,0 +1,5 @@
+[profile Nzinga's Profile]
+region=us-east-1
+[default]
+region = us-east-1
+output = json
