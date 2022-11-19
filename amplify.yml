@@ -7,7 +7,7 @@ frontend:
     build:
       commands: 
         - '# Execute Amplify CLI with the helper script'
-        - amplifyPush --simple
+        - amplify push --simple
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /
