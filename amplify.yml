@@ -5,11 +5,9 @@ frontend:
     build:
       commands: [
         ## Install python3.8
-            'RUN wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0rc2.tgz',
-            'RUN tar xvf Python-3.11.0rc2.tgz',
-            'WORKDIR Python-3.11.0',
-            'RUN ./configure --enable-optimizations --prefix=/usr/local',
-            'RUN make altinstall'
+            'RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_17}  && \
+                npm config set user 0 && npm config set unsafe-perm true && \
+                npm install -g @aws-amplify/cli@${VERSION_AMPLIFY}'
             ]
   artifacts:
     # IMPORTANT - Please verify your build output directory
