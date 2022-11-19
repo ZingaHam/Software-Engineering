@@ -5,9 +5,9 @@ frontend:
     build:
       commands: [
         ## Install python3.8
-            'RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_18}  && \
+            'RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use 18.12.1  && \
                 npm config set user 0 && npm config set unsafe-perm true && \
-                npm install -g @aws-amplify/cli@${VERSION_AMPLIFY}'
+                npm install -g @aws-amplify/cli@10.5.0'
             ]
   artifacts:
     # IMPORTANT - Please verify your build output directory
