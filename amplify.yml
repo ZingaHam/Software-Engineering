@@ -3,12 +3,7 @@ frontend:
   phases:
     # IMPORTANT - Please verify your build commands
     build:
-      commands: [
-        ## Install python3.8
-            'RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use 18.12.1  && \
-                npm config set user 0 && npm config set unsafe-perm true && \
-                npm install -g @aws-amplify/cli@10.5.0'
-            ]
+      commands: []
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /
