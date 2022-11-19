@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "SoftwareEngineeringProject": {}
+      },
+      "storage": {
+        "softwareengineeringp6837a949": {
+          "bucketName": "amplify-softwareengineering-dev-190948-deployment",
+          "region": "us-east-1"
+        }
       }
     }
   }
