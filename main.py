@@ -1,5 +1,6 @@
 # main python file for SWE project
 import os
+from aws_connect import login_test
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
@@ -15,11 +16,16 @@ index_html = open("index.html", "r")
 upload_html = open("upload.html", "r")
 s_upload_html = open("successful_upload.html", "r")
 
-# trying to upload to the a Google drive folder for confirmation it works 
+# login page
+@app.route("/login")
+def login_page():
+    results=login_test()
+    return "<p>%s<p>"%results
+    
 
 # opens the index page at the url with just a backslash added
 @app.route("/")
-def hello_world():
+def home_page():
 	return index_html.read()
     
 # opens the upload page at the url with '/upload' added    
