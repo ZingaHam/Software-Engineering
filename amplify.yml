@@ -15,9 +15,3 @@ backend:
       commands: npm i -g @aws-amplify/cli@10.5.0
     build:
       commands: amplify push --simple
-  artifacts:
-    baseDirectory: /
-    files:
-      - '**/*'
-  cache:
-    paths: []
