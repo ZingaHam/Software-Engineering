@@ -1,0 +1,10 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+th, td {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: lightgray;
+  padding: 10px;
+}
