@@ -3,7 +3,14 @@ frontend:
   phases:
     # IMPORTANT - Please verify your build commands
     build:
-      commands: ['npm install -g @aws-amplify/cli']
+      commands: [
+        ## Install python3.8
+            'RUN wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0rc2.tgz',
+            'RUN tar xvf Python-3.11.0rc2.tgz',
+            'WORKDIR Python-3.11.0',
+            'RUN ./configure --enable-optimizations --prefix=/usr/local',
+            'RUN make altinstall'
+            ]
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /
