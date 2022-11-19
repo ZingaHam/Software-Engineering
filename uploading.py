@@ -5,8 +5,6 @@ from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
 app.config['S3_BUCKET'] = "amplify-softwareengineering-dev-190948-deployment"
-app.config['S3_KEY'] = "AKIAUNQWQUC622ELOIXQ"
-app.config['S3_SECRET'] = "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"
 app.config['S3_LOCATION'] = 'http://{}.s3.amazonaws.com/'.format(app.config['S3_BUCKET'])
 
 BUCKET = 'amplify-softwareengineering-dev-190948-deployment'
