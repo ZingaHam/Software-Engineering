@@ -1,4 +1,3 @@
-</form>
 <!DOCTYPE html>
 <html>
 
@@ -71,7 +70,31 @@
             border: 2px solid grey;
             border-radius: 9px;
         }
-    </style> 
+        .firstsection {
+          background-color: snow;
+          height: 400px;
+        }
+ 
+        .secondsection {
+          background-color: snow;
+          height: 400px;
+        }
+        .box-main {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black;
+          max-width: 80%;
+          margin: auto;
+          height: 80%;
+        }
+        .firsthalf {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+  </style> 
   
 </head>
 
@@ -91,40 +114,26 @@
             <button class="btn btn-sm">Search</button>
         </div>
     </nav>
-     <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+  
+  <section class="firstsection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <h1 class="text-big" id="acctpg">
+                    Account Page
+                </h1>
+                 
+                <p class="text-small">
+                    Welcome to your Account Profile!
+                </p>
+ 
+ 
+            </div>
+        </div>
+    </section>
+  
+  <script src="script.js"></script>
+  
+   <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
 </body>
 
 </html>
-<form method="POST" action="upload.php" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
-<?php
-
-// This will return all files in that folder
-$files = scandir("uploads");
- 
-// If you are using windows, first 2 indexes are "." and "..",
-// if you are using Mac, you may need to start the loop from 3,
-// because the 3rd index in Mac is ".DS_Store" (auto-generated file by Mac)
-//for each file in the uploads folder
-for ($a = 2; $a < count($files); $a++)
-{
-    ?>
-	
-    <p>
-        <!-- Displaying file name !-->
-        <?php echo $files[$a]; ?>
- 
-        <!-- href should be complete file path !-->
-        <!-- download attribute should be the name after it downloads !-->
-        <a href="uploads/<?php echo $files[$a]; ?>" download="<?php echo $files[$a]; ?>">
-            Download
-        </a>
-      <a href="delete.php?name=uploads/<?php echo $files[$a]; ?>"
-        style="color: red;">
-        Delete
-      </a>
- 
-    </p>
-    <?php
-}
