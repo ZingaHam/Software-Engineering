@@ -2,8 +2,12 @@ version: 1
 frontend:
   phases:
     # IMPORTANT - Please verify your build commands
+    preBuild:
+        commands: npm i -g @aws-amplify/cli@10.5.0
     build:
-      commands: []
+      commands: 
+        - '# Execute Amplify CLI with the helper script'
+        - amplifyPush --simple
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /
