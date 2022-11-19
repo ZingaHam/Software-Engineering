@@ -10,6 +10,11 @@
       "StackName": "amplify-softwareengineering-dev-190948",
       "StackId": "arn:aws:cloudformation:us-east-1:303916163261:stack/amplify-softwareengineering-dev-190948/721c3ba0-679e-11ed-9b1c-12284b6b5191",
       "AmplifyAppId": "d2jyjhi4gijfi6"
+    },
+    "categories": {
+      "auth": {
+        "SoftwareEngineeringProject": {}
+      }
     }
   }
 }
