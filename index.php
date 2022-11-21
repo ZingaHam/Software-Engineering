@@ -45,7 +45,6 @@ $files = scandir("uploads");
 for ($a = 2; $a < count($files); $a++)
 {
     ?>
-
     <p>
         <!-- Displaying file name !-->
         <?php echo $files[$a]; ?>
@@ -55,10 +54,12 @@ for ($a = 2; $a < count($files); $a++)
         <a href="uploads/<?php echo $files[$a]; ?>" download="<?php echo $files[$a]; ?>">
             Download
         </a>
-      <a href="delete.php?name=uploads/<?php echo $files[$a]; ?>"
-        style="color: red;">
-        Delete
-      </a>
- 
+        <a href="delete.php?name=uploads/<?php echo $files[$a]; ?>"
+           style="color: red;">
+            Delete
+        </a>
+
     </p>
     <?php
+}
+
