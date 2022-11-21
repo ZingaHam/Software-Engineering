@@ -2,7 +2,7 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/../php/php-8.1.12-devel-vs16-x64" />
+      <path value="$PROJECT_DIR$/../../../../../xampp/php/windowsXamppPhp" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

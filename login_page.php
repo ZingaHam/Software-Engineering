@@ -1,62 +1,48 @@
 <?php
-ob_start();
+include("config.php");
 session_start();
+ob_start();
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //when the form input button is clicked
+    $user_email = mysqli_real_escape_string($db,$_POST["email"]);
+    $user_password = mysqli_real_escape_string($db,$_POST["password"]);
+    // sql script to be run
+    $sql = "SELECT userID FROM users WHERE email = '$user_email' and password = '$user_password'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_assoc($result); // returns dict like array
+    $count = mysqli_fetch_assoc($result);
+
+    // if the table returns 1 row(denoting a match)
+    if($count==1){ // the user's info exist in the db
+        // record their user id for the session
+        $_SESSION['login_userID'] = $user_email;
+
+        //and directs user to the account page
+        header("location:index.php");
+    }else {
+        $error = "Your Login Name or Password is invalid";
+    }
+}
 ?>
 
-<?
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-?>
 
-<html lang = "en">
+<html>
 
 <head>
-    <title>Login Page</title>
+    <title>Login</title>
 </head>
 
 <body>
 
-<h2>Enter Username and Password</h2>
+<h2>Enter Email and Password</h2>
 <div class = "container form-signin">
-
-    <?php
-    $msg = '';
-
-    if (isset($_POST['login']) && !empty($_POST['username'])
-        && !empty($_POST['password'])) {
-
-        if ($_POST['username'] == 'tutorialspoint' &&
-            $_POST['password'] == '1234') {
-            $_SESSION['valid'] = true;
-            $_SESSION['timeout'] = time();
-            $_SESSION['username'] = 'tutorialspoint';
-
-            echo 'You have entered valid use name and password';
-        }else {
-            $msg = 'Wrong username or password';
-        }
-    }
-    ?>
-</div> <!-- /container -->
-
-<div class = "container">
-
-    <form class = "form-signin" role = "form"
-          action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);
-          ?>" method = "post">
-        <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
-        <input type = "text" class = "form-control"
-               name = "username" placeholder = "username = tutorialspoint"
-               required autofocus></br>
-        <input type = "password" class = "form-control"
-               name = "password" placeholder = "password = 1234" required>
-        <button class = "btn btn-lg btn-primary btn-block" type = "submit"
-                name = "login">Login</button>
+<!--Form has no action because php is present in the file-->
+    <form action = "" method = "post">
+        <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
+        <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
+        <input type = "submit" value = " Submit "/><br />
     </form>
-
-    Click here to clean <a href = "logout.php" tite = "Logout">Session.
-
-</div>
+</div> <!-- /container -->
 
 </body>
 </html>
