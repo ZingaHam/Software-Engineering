@@ -33,7 +33,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
+<nav class="navbar background">
+    <ul class="nav-list">
+        <div class="logo">
+            <li><a href="index.php"><img src="logo.png"></a></li>
+        </div>
+        <li><a href="account_page.html">Account</a></li>
+        <li><a href="course_page.html">Courses</a></li>
+    </ul>
 
+    <div class="rightNav">
+        <input type="text" name="search" id="search">
+        <button class="btn btn-sm">Search</button>
+    </div>
+</nav>
 <h2>Enter Email and Password</h2>
 <div class = "container form-signin">
 <!--Form has no action because php is present in the file-->

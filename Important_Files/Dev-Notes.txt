@@ -1,0 +1,10 @@
+Notes for Devs:
+code located in "/var/www/html" directory
+
+Instructions on Updating Website:
+	1. Clear site directory: "rm /var/www/html/*"
+	2. Navigate to Root + Repo: "cd /Software-Engineering"
+	3. Pull from repo to update code: "git pull"
+	4. Copy files to web dir: "sudo cp -R Software-Engineering/* /var/www/html"
+	5. Go to site to check changes: "http://ec2-54-162-22-155.compute-1.amazonaws.com/index.php"
+	(IMPORTANT: Must use http while we don't have domain name certificate)

@@ -34,12 +34,24 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, CURRENT_TIMESTAMP) ";
 </head>
 
 <body>
+<nav class="navbar background">
+    <ul class="nav-list">
+        <div class="logo">
+            <li><a href="index.php"><img src="logo.png"></a></li>
+        </div>
+        <li><a href="account_page.html">Account</a></li>
+        <li><a href="course_page.html">Courses</a></li>
+    </ul>
 
+    <div class="rightNav">
+        <input type="text" name="search" id="search">
+        <button class="btn btn-sm">Search</button>
+    </div>
+</nav>
 <h2>Enter Email and Password</h2>
-<p>Later on you can add courses and other details to your account</p>
+<p>Please Fill in the Form Below <br> Later on you can add courses and other details to your account</p>
 <div class = "container form-signin">
-    <!--Form has no action because php is present in the file-->
-    <form action = "" method = "post">
+     <form action = "" method = "post">
         <label>Email :</label><input type = "text" name = "email" class = "box"/><br /><br />
         <label>Password :</label><input type = "password" name = "password" class = "box" /><br/><br />
 <!--        <label>Confirm Password  :</label><input type = "text" name = "email" class = "box"/><br /><br />-->
