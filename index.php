@@ -42,7 +42,7 @@ $files = scandir("uploads");
 // if you are using Mac, you may need to start the loop from 3,
 // because the 3rd index in Mac is ".DS_Store" (auto-generated file by Mac)
 //for each file in the uploads folder
-for ($a = 2; $a < count($files); $a++)
+for ($a = 0; $a < count($files); $a++)
 {
     ?>
     <p>
