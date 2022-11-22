@@ -4,4 +4,10 @@
 unlink($_GET["name"]);
  
 // Redirecting back
-header("Location: " . $_SERVER["HTTP_REFERER"]);
+if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != ""){
+$url = $_SERVER['HTTP_REFERER'];
+}else{
+$url = "index.php";
+}
+
+header("Location: ".$url);;
