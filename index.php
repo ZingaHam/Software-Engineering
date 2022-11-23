@@ -29,37 +29,52 @@
 </body>
 
 
-<form method="POST" action="upload.php" enctype="multipart/form-data">
+<div class="upload content_div">
+<p id="uploadprompt">Upload Files Here</p>
+<form method="POST" action="upload.php" enctype="multipart/form-data" id="uploadform">
     <input type="file" name="file">
-    <input type="submit" value="Upload">
-</html>
+    <input type="submit" value="Upload">    
+    </form>
+</div>
+
+<div class="listed_files content_div">
+<h2 id="uploadprompt">Uploaded Files Displayed Here:</h2>
 <?php
 
 // This will return all files in that folder
 $files = scandir("uploads");
+//getting rid of subdirectories . and ..
+$files = array_diff(scandir($directory), array('..', '.'));
  
 // If you are using windows, first 2 indexes are "." and "..",
 // if you are using Mac, you may need to start the loop from 3,
 // because the 3rd index in Mac is ".DS_Store" (auto-generated file by Mac)
 //for each file in the uploads folder
-for ($a = 2; $a < count($files); $a++)
+for ($a = 0; $a < count($files); $a++)
 {
     ?>
     <p>
         <!-- Displaying file name !-->
-        <?php echo $files[$a]; ?>
+        <?php if (!$files) //if there are no files
+				{ //display this prompt
+					echo "No Files Uploaded"
+				} else { //else display files
+					echo $files[$a];
+				} ?>
 
         <!-- href should be complete file path !-->
         <!-- download attribute should be the name after it downloads !-->
-        <a href="uploads/<?php echo $files[$a]; ?>" download="<?php echo $files[$a]; ?>">
+        <a id="download_button" href="uploads/<?php echo $files[$a]; ?>" download="<?php echo $files[$a]; ?>">
             Download
         </a>
         <a href="delete.php?name=uploads/<?php echo $files[$a]; ?>"
-           style="color: red;">
+           id="delete_button">
             Delete
         </a>
 
     </p>
     <?php
 }
+</div>
+
 

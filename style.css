@@ -1,6 +1,14 @@
 html, body {
   height: 100%;
   width: 100%;
+  margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25%;
+    padding-block: 10px;
 }
 th, td {
   border: 1px solid white;
@@ -8,10 +16,24 @@ th, td {
   background-color: lightgray;
   padding: 10px;
 }
- * {
-   margin: 0;
-   padding: 0;
- }
+
+form#uploadform {
+    display: flex;
+    flex-direction: column;
+    padding-left: 33%;
+    padding-right: 33%;
+    /* flex-basis: fit-content; */
+}
+
+
+form {
+    border: 5px black;
+    border-radius: 10px;
+}
+
+form.upload {
+    align-self: center;
+}
 
 .navbar {
   display: flex;
@@ -42,7 +64,7 @@ th, td {
 
 .logo img {
   width: 180px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 
 .nav-list li {
@@ -99,4 +121,15 @@ th, td {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.listed_files {
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.content_div {
+    /* margin: 10px; */
+    padding: inherit;
+    text-align: center;
 }
