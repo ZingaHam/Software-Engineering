@@ -7,4 +7,4 @@ $file = $_FILES["file"];
 move_uploaded_file($file["tmp_name"], "uploads/" . $file["name"]);
  
 //automatic redirection back to landing page by using a header
-header("location:index.php"); 
+header("location:Main_page.php"); 
