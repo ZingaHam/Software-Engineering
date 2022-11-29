@@ -1,0 +1,58 @@
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+th, td {
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: lightgray;
+  padding: 10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: tan;
+  }
+
+  .Sign-Up{
+    width: 390px;
+    height: max-content;
+    padding: 27px;
+    border-radius: 12px;
+    background: white;
+  }
+
+  .Sign-Up h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .Sign-Up form{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .Sign-Up form .form-group{
+    margin-bottom: 18px;
+  }
+
+  .Sign-Up form input[type="submit"]{
+    font-size: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+
+  }
+
+ 
+  
