@@ -7,20 +7,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user_email = mysqli_real_escape_string($db,$_POST["email"]);
     $user_password = mysqli_real_escape_string($db,$_POST["password"]);
     // sql script to be run
-    $sql = "SELECT userID FROM users WHERE email = '$user_email' and password = '$user_password'";
+    $sql = "SELECT userID FROM user WHERE email = '$user_email' and password = '$user_password'";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result); // returns dict like array
-    $count = mysqli_fetch_assoc($result);
+    //print_r($row);
+    $count = count($row);
 
     // if the table returns 1 row(denoting a match)
     if($count==1){ // the user's info exist in the db
         // record their user id for the session
-        $_SESSION['login_userID'] = $user_email;
+        $_SESSION['login_userID'] = $row["userID"];
 
         //and directs user to the account page
-        header("location:index.php");
+        header("location:account_page.php");
     }else {
         $error = "Your Login Name or Password is invalid";
+        echo $error;
     }
 }
 ?>
@@ -38,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="logo">
             <li><a href="index.php"><img src="logo.png"></a></li>
         </div>
-        <li><a href="account_page.html">Account</a></li>
+        <li><a href="account_page.php">Account</a></li>
         <li><a href="course_page.html">Courses</a></li>
     </ul>
 

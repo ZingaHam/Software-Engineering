@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<?php
+include("config.php");
+session_start();
+$userID = $_SESSION['login_userID'];
+$sql = "SELECT full_name, type, bio FROM user WHERE userID = '$userID'";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_assoc($result); // returns dict like array
+if($row["type"]=="student") {
+    // if the user is a student
+    // load student view
+} elseif ($row["type"]=="professor"){
+    // if the user is a professor
+    // load professor view
+}
+?>
 <html>
 
 <head>
@@ -34,7 +48,7 @@
                 </h1>
                  
                 <p class="text-small">
-                    Welcome to your Account Profile!
+                    Welcome, <?php echo $row["full_name"]?>
                 </p>
  
  

@@ -16,7 +16,7 @@
             <div class="logo">
                 <li><a href="index.php"><img src="logo.png"></a></li>
             </div>
-            <li><a href="account_page.html">Account</a></li>
+            <li><a href="account_page.php">Account</a></li>
             <li><a href="course_page.html">Courses</a></li>
         </ul>
  
@@ -50,15 +50,18 @@ $files = array_diff(scandir($directory), array('..', '.'));
 // if you are using Mac, you may need to start the loop from 3,
 // because the 3rd index in Mac is ".DS_Store" (auto-generated file by Mac)
 //for each file in the uploads folder
+$prompt="";
 for ($a = 0; $a < count($files); $a++)
 {
     ?>
     <p>
         <!-- Displaying file name !-->
-        <?php if (!$files) //if there are no files
+        <?php echo $prompt;
+        if (!$files) //if there are no files
 				{ //display this prompt
-					echo "No Files Uploaded"
+					$prompt= "No Files Uploaded";
 				} else { //else display files
+                    $prompt = "These are your files";
 					echo $files[$a];
 				} ?>
 
@@ -74,7 +77,7 @@ for ($a = 0; $a < count($files); $a++)
 
     </p>
     <?php
-}
+}?>
 </div>
 
 

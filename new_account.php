@@ -3,25 +3,27 @@ include("config.php");
 session_start();
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    //when the form input button is clicked
+
+    //when the form input button is clicked formt input for sql query
     $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
     $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
     $userFName = mysqli_real_escape_string($db,$_POST["first_name"]);
     $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
+    $accountType = $_POST["type"];
     // sql script to be run
-    $sql = "INSERT INTO users (email, password, firstName, lastName, timeCreated)
-VALUES ($userEmail, $userPassword, $userFName, $userLName, CURRENT_TIMESTAMP) ";
+    $sql = "INSERT INTO user (email, password, firstName, lastName, type)
+VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result); // returns dict like array
-    $count = mysqli_fetch_assoc($result);
+    $count = count($row);
 
     // if the table returns 1 row(denoting a match)
-    if($count==1){ // the user's info exist in the db
+    if($count==1){ // the user's info already exist in the db
         // record their user id for the session
         $_SESSION['login_userID'] = $userEmail;
 
-        //and directs user to the account page
-        header("location:index.php");
+        //and directs user to the login page
+        header("location:login_page.php");
     }else {
         $error = "Your Login Name or Password is invalid";
     }
@@ -30,7 +32,7 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, CURRENT_TIMESTAMP) ";
 <html lang = "en">
 
 <head>
-    <title>New Account</title>
+    <title>Create a New Account</title>
 </head>
 
 <body>
@@ -39,7 +41,7 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, CURRENT_TIMESTAMP) ";
         <div class="logo">
             <li><a href="index.php"><img src="logo.png"></a></li>
         </div>
-        <li><a href="account_page.html">Account</a></li>
+        <li><a href="account_page.php">Account</a></li>
         <li><a href="course_page.html">Courses</a></li>
     </ul>
 
@@ -57,8 +59,12 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, CURRENT_TIMESTAMP) ";
 <!--        <label>Confirm Password  :</label><input type = "text" name = "email" class = "box"/><br /><br />-->
         <label>First Name :</label><input type = "first_name" name = "password" class = "box" /><br/><br />
         <label>Last Name :</label><input type = "last_name" name = "email" class = "box"/><br /><br />
-        <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-        <input type = "submit" value = " Submit "/><br />
+         <label>Student or Professor  :</label><br />
+         <input type="radio" id="student" name="fav_language" value="student">
+         <label for="student">Student</label><br>
+         <input type="radio" id="professor" name="fav_language" value="professor">
+         <label for="professor">Professor</label><br /><br />
+         <input type = "submit" value = "Submit"/><br />
     </form>
 </div> <!-- /container -->
 
