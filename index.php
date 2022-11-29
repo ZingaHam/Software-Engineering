@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type = "submit" value = " Submit "/><br />
     </form>
     <p>Or create a New Account by Clicking the Button Below</p>
-    <button onclick= "window.location.href('new_account.php')">Create Account</button>
+    <button onclick= "window.location.replace('new_account.php')">Create Account</button>
 </div>
 
 </body>
