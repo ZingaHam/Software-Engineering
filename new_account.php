@@ -23,7 +23,7 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
         $_SESSION['login_userID'] = $userEmail;
 
         //and directs user to the login page
-        header("location:login_page.php");
+        header("location:index.php");
     }else {
         $error = "Your Login Name or Password is invalid";
     }
