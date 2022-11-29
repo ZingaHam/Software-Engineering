@@ -10,22 +10,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $userFName = mysqli_real_escape_string($db,$_POST["first_name"]);
     $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
     $accountType = $_POST["type"];
-    // sql script to be run
+    // sql script to push the user creds run
     $sql = "INSERT INTO user (email, password, firstName, lastName, type)
 VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result); // returns dict like array
-    $count = count($row);
+
+
+    $checkforemail = "SELECT * FROM user WHERE city = '$userEmail'";
+    $result2 = mysqli_query($db, $checkforemail);
+
+
 
     // if the table returns 1 row(denoting a match)
-    if($count==1){ // the user's info already exist in the db
-        // record their user id for the session
-        $_SESSION['login_userID'] = $userEmail;
+    if(mysqli_num_rows($result2) == 0){ // the user's info already exist in the db
+        $prompt="The email you enter is already connected to an account";
 
-        //and directs user to the login page
-        header("location:index.php");
     }else {
-        $error = "Your Login Name or Password is invalid";
+        $prompt = "Account Creation Successful";
+        header("location:index.php");
     }
 }
 ?>
