@@ -50,8 +50,8 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
         <button class="btn btn-sm">Search</button>
     </div>
 </nav>
-<h2>Enter Email and Password</h2>
-<p>Please Fill in the Form Below <br> Later on you can add courses and other details to your account</p>
+<h2>Please Fill in the Form Below </h2>
+<p><br> Later on you can add courses and other details to your account</p>
 <div class = "container form-signin">
      <form action = "" method = "post">
         <label>Email :</label><input type = "email" name = "email" class = "box"/><br /><br />
