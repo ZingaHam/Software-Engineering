@@ -1,6 +1,6 @@
 <?php
 //automatic redirection back to the landing page by specifying it in a header
-header("location:index.php"); 
+header("location:Main_page.php"); 
 // Built-in PHP function to delete file
 unlink($_GET["name"]);
  
