@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <button class="btn btn-sm">Search</button>
     </div>
 </nav>
-<h2>Enter Email and Password</h2>
+<h2>Enter Email and Password to Log-in</h2>
 <div class = "container form-signin">
 <!--Form has no action because php is present in the file-->
     <form action = "" method = "post">
@@ -57,6 +57,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
         <input type = "submit" value = " Submit "/><br />
     </form>
+    <p>Or create a New Account by Clicking the Button Below</p>
+    <input type="button" onclick= "window.location.href(/new_account.php)" value="Create Account"/>
 </div> <!-- /container -->
 
 </body>
