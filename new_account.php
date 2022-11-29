@@ -54,7 +54,7 @@ VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
 <p>Please Fill in the Form Below <br> Later on you can add courses and other details to your account</p>
 <div class = "container form-signin">
      <form action = "" method = "post">
-        <label>Email :</label><input type = "text" name = "email" class = "box"/><br /><br />
+        <label>Email :</label><input type = "email" name = "email" class = "box"/><br /><br />
         <label>Password :</label><input type = "password" name = "password" class = "box" /><br/><br />
 <!--        <label>Confirm Password  :</label><input type = "text" name = "email" class = "box"/><br /><br />-->
         <label>First Name :</label><input type = "first_name" name = "password" class = "box" /><br/><br />
