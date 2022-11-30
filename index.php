@@ -35,31 +35,51 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
-<nav class="navbar background">
-    <ul class="nav-list">
-        <div class="logo">
-            <li><a href="index.php"><img src="logo.png"></a></li>
-        </div>
-        <li><a href="account_page.php">Account</a></li>
-        <li><a href="course_page.html">Courses</a></li>
-    </ul>
 
-    <div class="rightNav">
-        <input type="text" name="search" id="search">
-        <button class="btn btn-sm">Search</button>
+
+<form class="needs-validation" action = "" method = "post">
+
+    <div class="form-group was-validated">
+        <label class="form-label" for="email">Email address</label>
+        <input class="form-control" name="email" type="email" id="email" required>
+        <div class="invalid-feedback">
+            Please enter your email address
+        </div>
     </div>
-</nav>
-<h2>Enter Email and Password to Log-in</h2>
-<div class = "container form-signin">
-<!--Form has no action because php is present in the file-->
-    <form action = "" method = "post">
-        <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
-        <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-        <input type = "submit" value = " Submit "/><br />
-    </form>
-    <p>Or create a New Account by Clicking the Button Below</p>
-    <button onclick= "window.location.replace('new_account.php')">Create Account</button>
-</div>
+
+    <div class="form-group was-validated">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" id="password" name = "password" required>
+        <div class="invalid-feedback">
+            Please enter your password
+        </div>
+    </div>
+
+    <div class="form-group form-check">
+        <input class="form-check-input" type="checkbox" id="check">
+        <label class="form-check-label" for="check"> Remember me</label>
+    </div>
+
+    <div>
+
+        <input class="btn btn-success w-100" type="submit" value="Submit">
+
+
+    </div>
+
+    <div class="forgot-password-link ">
+        <a href="#" title="Forgot Password" class="text-decoration-none">Forgot Password?</a>
+    </div >
+
+    <div>
+        <div class="sign-up-link " onclick= "window.location.replace('new_account.php')>
+            <a href="Signup.html" title="Sign up" class="text-decoration-none">Sign up</a>
+        </div>
+
+
+    </div >
+    </div>
+</form>
 
 </body>
 </html>
