@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user_email = mysqli_real_escape_string($db,$_POST["email"]);
     $user_password = mysqli_real_escape_string($db,$_POST["password"]);
     // sql script to be run
-    $sql = "SELECT userID FROM user WHERE email = '$user_email' and password = '$user_password'";
+    $sql = "SELECT userID FROM user WHERE email = '.$user_email.' and password = '.$user_password.'";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result); // returns dict like array
     //print_r($row);

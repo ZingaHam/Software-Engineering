@@ -1,8 +1,9 @@
 <?php
 include("CONFIG.php");
-ob_start();
+
 $prompt="Please complete and submit the form to create a new account.";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    ob_start();
     //grabbing variables
     $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
     $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
@@ -10,11 +11,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
     $accountType = $_POST["type"];
 
-    //check for pre existing user
-    $checkforemail = "SELECT * FROM user WHERE email = '$userEmail'";
+    //check for pre-existing user
+    $checkforemail = "SELECT * FROM user WHERE email = ".$userEmail;
     $result2 = mysqli_query($db, $checkforemail);
-
-
 
     // if the table returns 1 row(denoting a match)
     if(mysqli_num_rows($result2) == 1){
@@ -23,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }else {
         // sql script to push the user creds run
         $sql = "INSERT INTO user (email, password, firstName, lastName, type)
-            VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
+            VALUES ".'('.$userEmail."., ".$userPassword.', '.$userFName.', '.$userLName.', '.$accountType.')';
         $result = mysqli_query($db, $sql);
         $prompt = "Account Creation Successful. Please Log In";
         header("location:index.php");
