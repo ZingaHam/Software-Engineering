@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . "/config.php");
+include(__DIR__ . "/CONFIG.php");
 session_start();
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['login_userID'] = $row["userID"];
 
         //and directs user to the account page
-        header("location:account_page.php");
+        header($_SERVER['HTTP_HOST']."account_page.php");
     }else {
         $error = "Your Login Name or Password is invalid";
         echo $error;
@@ -77,8 +77,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div >
 
     <div>
-        <div class="sign-up-link " onclick= "window.location.replace('new_account.php')>
-            <a href="Signup.html" title="Sign up" class="text-decoration-none">Sign up</a>
+        <div class="sign-up-link " >
+            <a href="new_account.php" title="Sign up" class="text-decoration-none">Sign up</a>
         </div>
 
 

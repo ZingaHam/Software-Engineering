@@ -1,32 +1,30 @@
 <?php
-include("config.php");
+include("CONFIG.php");
 session_start();
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    //when the form input button is clicked formt input for sql query
-    $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
-    $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
-    $userFName = mysqli_real_escape_string($db,$_POST["first_name"]);
-    $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
-    $accountType = $_POST["type"];
-    // sql script to push the user creds run
-    $sql = "INSERT INTO user (email, password, firstName, lastName, type)
-VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
-    $result = mysqli_query($db, $sql);
-    $row = mysqli_fetch_assoc($result); // returns dict like array
-
-
-    $checkforemail = "SELECT * FROM user WHERE city = '$userEmail'";
+    //check for pre existing user
+    $checkforemail = "SELECT * FROM user WHERE email = '$userEmail'";
     $result2 = mysqli_query($db, $checkforemail);
 
 
 
     // if the table returns 1 row(denoting a match)
-    if(mysqli_num_rows($result2) == 0){ // the user's info already exist in the db
+    if(mysqli_num_rows($result2) == 1){
         $prompt="The email you enter is already connected to an account";
 
     }else {
+        //when the form input button is clicked formt input for sql query
+        $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
+        $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
+        $userFName = mysqli_real_escape_string($db,$_POST["first_name"]);
+        $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
+        $accountType = $_POST["type"];
+        // sql script to push the user creds run
+        $sql = "INSERT INTO user (email, password, firstName, lastName, type)
+            VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
+        $result = mysqli_query($db, $sql);
         $prompt = "Account Creation Successful";
         header("location:index.php");
     }
