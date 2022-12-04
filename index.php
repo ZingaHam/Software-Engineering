@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result); // returns dict like array
     //print_r($row);
-    $count = count($row);
+    $count = mysqli_num_rows($result);
 
     // if the table returns 1 row(denoting a match)
     if($count==1){ // the user's info exist in the db
