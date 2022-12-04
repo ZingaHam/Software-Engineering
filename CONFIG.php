@@ -1,4 +1,6 @@
 <?php
+//error reporting
+ni_set('display_errors', 'On'); ini_set('html_errors', 0); error_reporting(-1);
 define('DB_SERVER', '172.31.86.95:3306');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'CS_Seniors23');
