@@ -1,6 +1,6 @@
 <?php
 include(__DIR__ . "/CONFIG.php");
-session_start();
+
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //when the form input button is clicked
@@ -15,6 +15,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // if the table returns 1 row(denoting a match)
     if($count==1){ // the user's info exist in the db
+        // start a session for them
+        session_start();
         // record their user id for the session
         $_SESSION['login_userID'] = $row["userID"];
 

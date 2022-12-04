@@ -1,8 +1,7 @@
 <?php
 include("CONFIG.php");
-$prompt="Please complete and submit the form to create a new account.";
-session_start();
 ob_start();
+$prompt="Please complete and submit the form to create a new account.";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //grabbing variables
     $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
@@ -29,6 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $prompt = "Account Creation Successful. Please Log In";
         header("location:index.php");
     }
+    ob_end_flush();
 }
 ?>
 <html lang = "en">
