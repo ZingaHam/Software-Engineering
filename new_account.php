@@ -3,6 +3,12 @@ include("CONFIG.php");
 session_start();
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //grabbing variables
+    $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
+    $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
+    $userFName = mysqli_real_escape_string($db,$_POST["first_name"]);
+    $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
+    $accountType = $_POST["type"];
 
     //check for pre existing user
     $checkforemail = "SELECT * FROM user WHERE email = '$userEmail'";
@@ -15,12 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $prompt="The email you enter is already connected to an account";
 
     }else {
-        //when the form input button is clicked formt input for sql query
-        $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
-        $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
-        $userFName = mysqli_real_escape_string($db,$_POST["first_name"]);
-        $userLName = mysqli_real_escape_string($db,$_POST["last_name"]);
-        $accountType = $_POST["type"];
+
         // sql script to push the user creds run
         $sql = "INSERT INTO user (email, password, firstName, lastName, type)
             VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
