@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $accountType = $_POST["type"];
 
     //check for pre-existing user
-    $checkforemail = "SELECT * FROM user WHERE email = ".$userEmail;
+    $checkforemail = "SELECT * FROM user WHERE email = ${userEmail}";
     $result2 = mysqli_query($db, $checkforemail);
 
     // if the table returns 1 row(denoting a match)
@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }else {
         // sql script to push the user creds run
         $sql = "INSERT INTO user (email, password, firstName, lastName, type)
-            VALUES ".'('.$userEmail."., ".$userPassword.', '.$userFName.', '.$userLName.', '.$accountType.')';
+            VALUES (${userEmail},${userPassword}, ${userFName},${userLName},${accountType})";
         $result = mysqli_query($db, $sql);
         $prompt = "Account Creation Successful. Please Log In";
         header("location:index.php");
