@@ -55,16 +55,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <h2><?php echo $prompt?>></h2>
 <p><br> Later on you can add courses and other details to your account</p>
 <div class = "container form-signin">
-     <form action = "" method = "post">
+     <form action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
         <label>Email :</label><input type = "email" name = "email" class = "box"/><br /><br />
         <label>Password :</label><input type = "password" name = "password" class = "box" /><br/><br />
 <!--        <label>Confirm Password  :</label><input type = "text" name = "email" class = "box"/><br /><br />-->
-        <label>First Name :</label><input type = "first_name" name = "password" class = "box" /><br/><br />
-        <label>Last Name :</label><input type = "last_name" name = "email" class = "box"/><br /><br />
+        <label>First Name :</label><input type = "first_name" name = "first_name" class = "box" /><br/><br />
+        <label>Last Name :</label><input type = "last_name" name = "last_name" class = "box"/><br /><br />
          <label>Student or Professor  :</label><br />
-         <input type="radio" id="student" value="student">
+         <input type="radio" id="student" name="type" value="student">
          <label for="student">Student</label><br>
-         <input type="radio" id="professor" value="professor">
+         <input type="radio" id="professor" name="type" value="professor">
          <label for="professor">Professor</label><br /><br />
          <input type = "submit" value = "Submit"/><br />
     </form>
