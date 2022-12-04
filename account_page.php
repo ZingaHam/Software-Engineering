@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("CONFIG.php");
 session_start();
 $userID = $_SESSION['login_userID'];
 $sql = "SELECT full_name, type, bio FROM user WHERE userID = '$userID'";
@@ -28,10 +28,10 @@ if($row["type"]=="student") {
  <nav class="navbar background">
         <ul class="nav-list">
             <div class="logo">
-                <li><a href="Main_page.php"><img src="logo.png"></a></li>
+                <li><a href="my.spelman.edu"><img src="logo.png"></a></li>
             </div>
-            <li><a href="account_page.html">Account</a></li>
-            <li><a href="course_page.html">Courses</a></li>
+            <li><a href="account_page.php">Account</a></li>
+            <li><a href="course_page.php">Courses</a></li>
         </ul>
  
         <div class="rightNav">
@@ -50,6 +50,8 @@ if($row["type"]=="student") {
                 <p class="text-small">
                     Welcome, <?php echo $row["full_name"]?>
                 </p>
+
+<!--                add log out button/functionality-->
  
  
             </div>

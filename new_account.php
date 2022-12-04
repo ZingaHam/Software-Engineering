@@ -1,5 +1,6 @@
 <?php
 include("CONFIG.php");
+$prompt="Please complete and submit the form to create a new account.";
 session_start();
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -18,15 +19,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // if the table returns 1 row(denoting a match)
     if(mysqli_num_rows($result2) == 1){
-        $prompt="The email you enter is already connected to an account";
+        $prompt=$prompt." The email you enter is already connected to an account";
 
     }else {
-
         // sql script to push the user creds run
         $sql = "INSERT INTO user (email, password, firstName, lastName, type)
             VALUES ($userEmail, $userPassword, $userFName, $userLName, $accountType) ";
         $result = mysqli_query($db, $sql);
-        $prompt = "Account Creation Successful";
+        $prompt = "Account Creation Successful. Please Log In";
         header("location:index.php");
     }
 }
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <button class="btn btn-sm">Search</button>
     </div>
 </nav>
-<h2>Please Fill in the Form Below </h2>
+<h2><?php echo $prompt?>></h2>
 <p><br> Later on you can add courses and other details to your account</p>
 <div class = "container form-signin">
      <form action = "" method = "post">
@@ -62,9 +62,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <label>First Name :</label><input type = "first_name" name = "password" class = "box" /><br/><br />
         <label>Last Name :</label><input type = "last_name" name = "email" class = "box"/><br /><br />
          <label>Student or Professor  :</label><br />
-         <input type="radio" id="student" name="fav_language" value="student">
+         <input type="radio" id="student" value="student">
          <label for="student">Student</label><br>
-         <input type="radio" id="professor" name="fav_language" value="professor">
+         <input type="radio" id="professor" value="professor">
          <label for="professor">Professor</label><br /><br />
          <input type = "submit" value = "Submit"/><br />
     </form>

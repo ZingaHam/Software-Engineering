@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['login_userID'] = $row["userID"];
 
         //and directs user to the account page
-        header($_SERVER['HTTP_HOST']."account_page.php");
+        header("account_page.php");
     }else {
         $error = "Your Login Name or Password is invalid";
         echo $error;
