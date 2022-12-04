@@ -4,8 +4,8 @@ session_start();
 ob_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //when the form input button is clicked
-    $user_email = mysqli_real_escape_string($mysqli,$_POST["email"]);
-    $user_password = mysqli_real_escape_string($mysqli,$_POST["password"]);
+    $user_email = mysqli_real_escape_string($db,$_POST["email"]);
+    $user_password = mysqli_real_escape_string($db,$_POST["password"]);
     // sql script to be run
     $sql = "SELECT userID FROM user WHERE email = '$user_email' and password = '$user_password'";
     $result = mysqli_query($db, $sql);
