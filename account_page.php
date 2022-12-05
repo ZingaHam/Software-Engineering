@@ -31,7 +31,7 @@ if($row["type"]=="student") {
                 <li><a href="Main_page.php"><img src="logo.png"></a></li>
             </div>
             <li><a href="account_page.php">Account</a></li>
-            <li><a href="course_page.php">Courses</a></li>
+            <li><a href="course_page.html">Courses</a></li>
         </ul>
  
         <div class="rightNav">
