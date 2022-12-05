@@ -27,7 +27,7 @@ if(!empty($_POST["submit"]) && $_POST["email"] !=''){
     }else {
         // sql script to push the user creds run
         $sql = "INSERT INTO user (email, password, firstName, lastName, type)
-            VALUES (${userEmail},${userPassword}, ${userFName},${userLName},${accountType})";
+            VALUES ('${userEmail}','${userPassword}', '${userFName}','${userLName}','${accountType})'";
         $result = mysqli_query($db, $sql);
         $prompt = "Account Creation Successful. Please Log In";
         header("location:index.php");
