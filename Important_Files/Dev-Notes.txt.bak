@@ -14,3 +14,25 @@ Instructions on Updating Website:
 
 Notes on Updating Website:
 	1. If you get a "No such file or directory" error when attempting to navigate try the `sudo su` command.
+
+Error Checking:
+	Apache Web Server:
+	PHP: 
+		-Whole Log:
+		-Specific Number of Lines: tail -n <number of lines> Please only work in the github. Code from repl.it takes time to  
+
+What's Left:
+	Login Feature
+		- new user account creation
+		- reset password ability(stretch)
+	Student View:
+		- profile editing ability
+			- bio
+		- user specific file uploads
+		- course page view
+	Professor View(stretch):
+		- profile edit ability
+		
+		- course page edit ability
+		
+		

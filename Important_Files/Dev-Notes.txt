@@ -15,6 +15,13 @@ Instructions on Updating Website:
 Notes on Updating Website:
 	1. If you get a "No such file or directory" error when attempting to navigate try the `sudo su` command.
 
+Error Checking:
+	Apache Web Server:
+		Whole Log: cat /var/log/httpd/error_log
+	PHP: 
+		-Whole Log: cat /var/log/php*/www-error.log  
+		-Specific Number of Lines: tail -n <number of lines> /var/log/php*/www-error.log  
+
 What's Left:
 	Login Feature
 		- new user account creation
