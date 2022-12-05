@@ -3,7 +3,7 @@ include("CONFIG.php");
 
 $prompt="Please complete and submit the form to create a new account.";
 ob_start();
-if(!empty($_POST["register"]) && $_POST["email"] !=''){
+if(!empty($_POST["submit"]) && $_POST["email"] !=''){
 
     //grabbing variables
     $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
