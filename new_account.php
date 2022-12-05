@@ -17,7 +17,11 @@ if(!empty($_POST["submit"]) && $_POST["email"] !=''){
     $result2 = mysqli_query($db, $checkforemail);
 
     // if the table returns 1 row(denoting a match)
-    if(mysqli_num_rows($result2) == 1){
+    if(!$result2) {
+        //if the results2 query doesn't work print error
+        echo mysqli_error($db);
+    }
+    elseif (mysqli_num_rows($result2) == 1){
         $prompt=$prompt." The email you enter is already connected to an account";
 
     }else {
