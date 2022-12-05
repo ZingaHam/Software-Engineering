@@ -13,13 +13,14 @@ if(!empty($_POST["submit"]) && $_POST["email"] !=''){
     $accountType = $_POST["type"];
 
     //check for pre-existing user
-    $checkforemail = "SELECT * FROM user WHERE email = ${userEmail}";
+    $checkforemail = "SELECT * FROM user WHERE email = '${userEmail}'";
     $result2 = mysqli_query($db, $checkforemail);
 
     // if the table returns 1 row(denoting a match)
     if(!$result2) {
-        //if the results2 query doesn't work print error
+        //if the results2 query doesn't work print error and query
         echo mysqli_error($db);
+        echo $checkforemail;
     }
     elseif (mysqli_num_rows($result2) == 1){
         $prompt=$prompt." The email you enter is already connected to an account";
