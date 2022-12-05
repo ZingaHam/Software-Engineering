@@ -2,7 +2,7 @@
 include("CONFIG.php");
 
 $prompt="Please complete and submit the form to create a new account.";
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(!empty($_POST["register"]) && $_POST["email"] !=''){
     ob_start();
     //grabbing variables
     $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          <label for="student">Student</label><br>
          <input type="radio" id="professor" name="type" value="professor">
          <label for="professor">Professor</label><br /><br />
-         <input type = "submit" value = "Submit"/><br />
+         <input type = "submit" value = "Submit" name = "submit"/><br />
     </form>
 </div> <!-- /container -->
 
