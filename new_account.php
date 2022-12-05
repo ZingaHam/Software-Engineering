@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <nav class="navbar background">
     <ul class="nav-list">
         <div class="logo">
-            <li><a href="index.php"><img src="logo.png"></a></li>
+            <li><a href="Main_page.php"><img src="logo.png"></a></li>
         </div>
         <li><a href="account_page.php">Account</a></li>
         <li><a href="course_page.html">Courses</a></li>
