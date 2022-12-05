@@ -2,8 +2,9 @@
 include("CONFIG.php");
 
 $prompt="Please complete and submit the form to create a new account.";
+ob_start();
 if(!empty($_POST["register"]) && $_POST["email"] !=''){
-    ob_start();
+
     //grabbing variables
     $userEmail = mysqli_real_escape_string($db,$_POST["email"]);
     $userPassword = mysqli_real_escape_string($db,$_POST["password"]);
@@ -51,7 +52,7 @@ if(!empty($_POST["register"]) && $_POST["email"] !=''){
         <button class="btn btn-sm">Search</button>
     </div>
 </nav>
-<h2><?php echo $prompt?>></h2>
+<h2><?php echo $prompt?></h2>
 <p><br> Later on you can add courses and other details to your account</p>
 <div class = "container form-signin">
      <form action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
