@@ -1,5 +1,6 @@
 <?php
 include("CONFIG.php");
+include("upload.php");
 session_start();
 $userID = $_SESSION['login_userID'];
 $sql = "SELECT full_name, type, bio FROM user WHERE userID = '$userID'";
@@ -51,6 +52,39 @@ if($row["type"]=="student") {
                 <p class="text-small">
                     Welcome, <?php echo $row["full_name"]?>
                 </p>
+				<form method="POST" action="upload.php" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+<?php
+
+// This will return all files in that folder
+$files = scandir("uploads");
+ 
+// If you are using windows, first 2 indexes are "." and "..",
+// if you are using Mac, you may need to start the loop from 3,
+// because the 3rd index in Mac is ".DS_Store" (auto-generated file by Mac)
+//for each file in the uploads folder
+for ($a = 2; $a < count($files); $a++)
+{
+    ?>
+	
+    <p>
+        <!-- Displaying file name !-->
+        <?php echo $files[$a]; ?>
+ 
+        <!-- href should be complete file path !-->
+        <!-- download attribute should be the name after it downloads !-->
+        <a href="uploads/<?php echo $files[$a]; ?>" download="<?php echo $files[$a]; ?>">
+            Download
+        </a>
+      <a href="delete.php?name=uploads/<?php echo $files[$a]; ?>"
+        style="color: red;">
+        Delete
+      </a>
+ 
+    </p>
+    <?php
+}
 
 <!--                add log out button/functionality-->
  
@@ -65,3 +99,5 @@ if($row["type"]=="student") {
 </body>
 
 </html>
+<!--</html>
+-->
