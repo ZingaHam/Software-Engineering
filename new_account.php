@@ -50,6 +50,7 @@ if(!empty($_POST["submit"]) && $_POST["email"] !=''){
         </div>
         <li><a href="account_page.php">Account</a></li>
         <li><a href="course_page.html">Courses</a></li>
+        <li><a href="Projectspg.html">Projects</a></li>
     </ul>
 
     <div class="rightNav">
