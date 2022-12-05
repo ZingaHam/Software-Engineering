@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+        }
+ 
+        .background {
+            background: royalblue;
+            background-blend-mode: darken;
+            background-size: cover;
+        }
+ 
+        .nav-list {
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+ 
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+ 
+        .logo img {
+            width: 180px;
+            border-radius: 50px;
+        }
+ 
+        .nav-list li {
+            list-style: none;
+            padding: 26px 30px;
+        }
+ 
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+        }
+ 
+        .nav-list li a:hover {
+            color: grey;
+        }
+ 
+        .rightnav {
+            width: 30%;
+            text-align: right;
+        }
+ 
+        #search {
+            padding: 5px;
+            font-size: 17px;
+            border: 2px solid grey;
+            border-radius: 9px;
+        }
+        .firstsection {
+          background-color: snow;
+          height: 400px;
+        }
+ 
+        .secondsection {
+          background-color: snow;
+          height: 400px;
+        }
+        .box-main {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black;
+          max-width: 80%;
+          margin: auto;
+          height: 80%;
+        }
+        .firsthalf {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+  </style> 
+  
+</head>
+
+<body>
+   <nav class="navbar background">
+        <ul class="nav-list">
+            <div class="logo">
+                <li><a href="index.php"><img src="logo.png"></a></li>
+            </div>
+            <li><a href="account_page.html">Account</a></li>
+            <li><a href="course_page.html">Courses</a></li>
+        </ul>
+ 
+        <div class="rightNav">
+            <input type="text" name="search" id="search">
+            <button class="btn btn-sm">Search</button>
+        </div>
+    </nav>
+    <section class="firstsection">
+          <div class="container">
+            <div class="main">
+              <h1>
+                Software Engineering
+              </h1>
+              <p/>
+              <table align="center">
+                  <tr>
+                    <td>
+                      <input type="radio" value="1" color="green" name="status" readonly checked/>
+                      <input type="radio" value="2" color="yellow" name="status" readonly />
+                      <input type="radio" value="3" color="red" name="status" readonly />
+                      <h2>
+                        Project 1
+                      </h2>
+                      <br/>
+                      <font color="white" size="1pt" >Project 1 Description</font>
+                    </td>
+                    <td>
+                      Project 2
+                    </td>
+                    <td>
+                      Project 3
+                    </td>
+                  </tr>
+              </table>
+            </div>
+
+          </div>
+</body>
