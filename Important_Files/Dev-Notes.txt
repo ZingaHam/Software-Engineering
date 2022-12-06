@@ -26,7 +26,7 @@ What's Left:
 	Login Feature
 		- new user account creation
 		- reset password ability(stretch)
-	Student View:
+	Student View - MB
 		- profile editing ability
 			- bio
 		- user specific file uploads
